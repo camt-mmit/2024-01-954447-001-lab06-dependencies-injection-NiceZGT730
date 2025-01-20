@@ -1,0 +1,21 @@
+<header>
+  <button type="button" (click)="addTel()">
+    Add
+  </button>
+
+  <label>
+    <b>Contact <span>{{labelNumber()}}</span></b>
+    <input type="text" [value]="name()" #inputName (change)="changeName(inputName.value)">
+  </label>
+  <span>(<span>{{numberOfTels()}}</span>)</span>
+</header>
+
+@for (tel of tels(); track tel) {
+  <div>
+    <label>
+      <b>Tel <span>{{$index+1}}</span></b>
+      <input type="tel" [value]="tel.value" #inputTel (change)="changeTelValue($index,inputTel.value)" >
+    </label>
+    <button type="button" [disabled]="$count===1" (click)="deleteTel($index)">X</button>
+  </div>
+}
