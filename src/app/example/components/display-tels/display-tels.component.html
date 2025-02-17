@@ -1,1 +1,12 @@
-<p>display-tels works!</p>
+<h2>
+  Contact xx<span>{{labelNumber()}} </span>
+  <span>{{data().name}} </span>
+  <span>(<span>{{numberOfTels()}}</span>)</span>
+</h2>
+
+<dl>
+  @for (tel of data().tels; track $index) {
+  <dt>Tels <span>{{$index+1}}</span></dt>
+  <dd>{{ tel}}</dd>
+  }
+</dl>

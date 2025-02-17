@@ -8,6 +8,8 @@
     <input type="text" [value]="name()" #inputName (change)="changeName(inputName.value)">
   </label>
   <span>(<span>{{numberOfTels()}}</span>)</span>
+
+  <button type="button" [disabled]="deletionDisbled()" (click)="dataDelete.emit()" >X</button>
 </header>
 
 @for (tel of tels(); track tel) {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-tels',
@@ -12,6 +12,11 @@ export class DynamicTelsComponent {
   readonly labelNumber = input.required<number>();
 
   readonly dataChange = output<{name: string; tels: string[]}>();
+  readonly deletionDisbled = input(false,{
+    transform: booleanAttribute,
+  })
+
+  readonly dataDelete = output<void>();
 
   protected name = linkedSignal(()=> this.data().name);
 

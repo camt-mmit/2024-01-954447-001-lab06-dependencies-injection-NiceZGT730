@@ -1,1 +1,5 @@
-<p>display-contacts works!</p>
+
+  @for (item of data(); track $index) {
+    <app-display-tels [data]="item" [labelNumber]="$index+1" />
+  }
+

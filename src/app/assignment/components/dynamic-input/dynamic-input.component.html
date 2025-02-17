@@ -1,0 +1,28 @@
+<div>
+<header>
+  <button type="button" (click)="addTel()">
+    Add
+  </button>
+
+  <label for="contactInput">
+    <b>Section <span>{{labelNumber()}}</span></b>
+  </label>
+  <span>(<span>{{numberOfTels()}}</span>)</span>
+
+  <button type="button" [disabled]="deletionDisbled()" (click)="dataDelete.emit()">X</button>
+</header>
+
+@for (tel of tels(); track tel) {
+<div>
+  <label>
+    <b>Number <span>{{$index+1}}</span></b>
+    <input type="tel" [value]="tel.value" #inputTel (change)="changeTelValue($index,inputTel.value)">
+  </label>
+  <button type="button" [disabled]="$count===1" (click)="deleteTel($index)">X</button>
+</div>
+}
+
+<div>
+  <b>Sum: {{sumOfTels()}}</b>
+</div>
+</div>

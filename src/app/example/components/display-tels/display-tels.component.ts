@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-display-tels',
@@ -8,5 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisplayTelsComponent {
-
+  readonly data =input.required<{name:string ; tels:string[]}>();
+  readonly labelNumber = input.required<number>();
+  protected readonly numberOfTels = computed(()=> this.data().tels.length)
 }

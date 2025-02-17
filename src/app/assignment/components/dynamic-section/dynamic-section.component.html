@@ -2,6 +2,6 @@
   <button type="button" (click)="addItem()">Add Contact</button>
 </div>
 @for (item of items(); track item) {
-<app-dynamic-tels [data]="item" [deletionDisbled]="$count===1" [labelNumber]="$index +1"
+<app-dynamic-input [data]="item" [deletionDisbled]="$count===1" [labelNumber]="$index +1"
   (dataChange)="chagneItem($index,$event)" (dataDelete)="deleteItem($index) " />
 }
